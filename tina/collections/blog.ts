@@ -1,4 +1,5 @@
 import type { Collection } from "tinacms";
+import { parseImageFieldValue } from "../../utils/media";
 
 export const BlogCollection: Collection = {
 
@@ -38,6 +39,9 @@ export const BlogCollection: Collection = {
       name: "heroImage",
       label: "Hero Image",
       type: "image",
+      ui: {
+        parse: (media) => parseImageFieldValue(media),
+      },
     },
     {
       type: "rich-text",

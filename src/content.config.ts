@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import client from "../tina/__generated__/client";
+import { resolveImagePath } from "../utils/media";
 
 const blog = defineCollection({
   loader: async () => {
@@ -15,6 +16,7 @@ const blog = defineCollection({
           ...node,
           id: node?._sys.relativePath.replace(/\.mdx?$/, ""), // Generate clean URLs
           tinaInfo: node?._sys, // Include Tina system info if needed
+          heroImage: resolveImagePath(node?.heroImage),
         };
       });
   },
