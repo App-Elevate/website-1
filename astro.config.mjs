@@ -11,6 +11,11 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: process.env.SITE_URL || `https://${process.env.VERCEL_URL}`,
   integrations: [mdx(), sitemap(), react(), tinaDirective()],
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/compile",
+    },
+  },
 
   vite: {
       build: {
