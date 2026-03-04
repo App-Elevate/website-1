@@ -148,3 +148,9 @@ yarn.lock
 bun.lockb
 deno.lock
 
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
